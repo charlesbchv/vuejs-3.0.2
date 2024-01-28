@@ -8,7 +8,15 @@ const app = Vue.createApp({
             age: 45,
         }
     },
+    methods: { //methods object to store methods (functions) that we want to use in our app (in our template) 
+        changeTitle(title) {
+            //this.title = 'Words of Radiance'; //this refers to the data object
+            this.title = title;
+        }
+    }
 });
 
 
 app.mount('#app');
+
+// v-on directive is used to listen to events (like onclick, onmouseover, onkeydown, etc)
