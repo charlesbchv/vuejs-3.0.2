@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    </head>
+    <body>
+        <h1>Hello vue Coco</h1>
+        <div id="app">
+            <div v-if="showBooks">
+                <p>{{ title }} - {{ author }} - {{ age }}</p>
+            </div>
+            <button @click="toggleShowBooks">
+                <span v-if="showBooks">Hide books</span>
+                <!-- <span v-if="!showBooks">Hide books</span> -->
+                <span v-else>Show books</span>
+            </button>
+
+            <!-- ici c'est plus un css, qui joue, i.e comme display block (style="display: none;"), 
+                alors qu'en haut il retire entierement du DOM les data -->
+            <div v-show="showBooks"> currently showing books</div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
