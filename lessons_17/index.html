@@ -38,7 +38,7 @@
             <div v-if="showBooks">
                 <!--<p>{{ books[0].title }} - {{ books[0].author }} - {{ age }}</p>-->
                 <ul>
-                    <li v-for="book in books" :class="{ fav: book.isFav }" @click="toogleFav(book)"> <!-- c'est comme un livre dans le tableau des livres; for each -->
+                    <li v-for="book in filteredBooks" :class="{ fav: book.isFav }" @click="toogleFav(book)"> <!-- c'est comme un livre dans le tableau des livres; for each -->
                         <img v-bind:src="book.img" v-bind:alt="book.title">
                         <h3>{{ book.title }}</h3>
                         <p>{{ book.author }} - {{book.age}}</p>
