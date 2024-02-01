@@ -3,7 +3,9 @@
   <input type="text" ref="name">
   <button @click="handleClick">click me</button>
 
-  <Modal />
+  <Modal :header="header" :text="text" theme="sale"/> <!-- on peut mettre des props
+                                               ici, props c'est comme des attributs html; et attributs c'est 
+                                               comme des variables -->                                               
 
 </template>
 
@@ -12,13 +14,15 @@
 import Modal from "./components/Modal.vue"; 
 
 export default {
-  name: 'App',
+  name: 'Application',
   components : {
     Modal
   },
   data() {
     return {
         title : 'My first Vue app',
+        header : 'Sign up for the Giveaway',
+        text : 'Grab your ninja swag for half price'
     }
   },
   methods: {
