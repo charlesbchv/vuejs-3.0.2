@@ -1,5 +1,6 @@
 <template>
-    <div class="backdrop">
+    <div class="backdrop" @click.self="closeModal"> 
+        <!-- @click.self="closeModal" permet de fermer le modal si on clique en dehors du modal et sur modal en lui mm -->
         <div class="modal" :class="{sale: theme === 'sale'}">
             <h1>{{ header }}</h1>
             <p>{{ text }}</p>
@@ -14,6 +15,11 @@
             'text',
             'theme'
         ],
+        methods:{
+            closeModal() {
+                this.$emit('close'); // $emit est une fonction qui permet d'envoyer un evenement
+            }
+        }
     }
 </script>
 

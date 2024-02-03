@@ -1,12 +1,16 @@
 <template>
   <h1> {{ title }} </h1>
-  <input type="text" ref="name">
-  <button @click="handleClick">click me</button>
+  <p>Welcome Everyone</p>
+  <div v-if="showModal">
+    <Modal theme="sale" @close="handleModal"/> 
+  </div>
+  <button @click="handleModal">open modal</button>
+  <!-- <input type="text" ref="name"> -->
+  <!-- <button @click="handleClick">click me</button> -->
 
-  <Modal :header="header" :text="text" theme="sale"/> <!-- on peut mettre des props
-                                               ici, props c'est comme des attributs html; et attributs c'est 
-                                               comme des variables -->                                               
-
+  <!-- on peut mettre des props
+  ici, props c'est comme des attributs html; et attributs c'est 
+  comme des variables -->                                               
 </template>
 
 
@@ -22,7 +26,8 @@ export default {
     return {
         title : 'My first Vue app',
         header : 'Sign up for the Giveaway',
-        text : 'Grab your ninja swag for half price'
+        text : 'Grab your ninja swag for half price',
+        showModal : false
     }
   },
   methods: {
@@ -30,6 +35,9 @@ export default {
       console.log(this.$refs.name);
       this.$refs.name.classList.add('active');
       this.$refs.name.focus();
+    },
+    handleModal() {
+      this.showModal = !this.showModal
     }
   }
 }
