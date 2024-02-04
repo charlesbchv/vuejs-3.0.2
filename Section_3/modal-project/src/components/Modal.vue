@@ -2,6 +2,10 @@
     <div class="backdrop" @click.self="closeModal"> 
         <!-- @click.self="closeModal" permet de fermer le modal si on clique en dehors du modal et sur modal en lui mm -->
         <div class="modal" :class="{sale: theme === 'sale'}">
+            <slot>default content</slot>
+            <div class="actions">
+                <slot name="links"></slot>
+            </div>
             <h1>{{ header }}</h1>
             <p>{{ text }}</p>
         </div>
@@ -52,7 +56,25 @@
         background: crimson;
         color: white;
     }
-    /* .modal.sale h1{
+    .modal.sale h1{
         color:white;
-    } */
+    }
+    .modal .actions {
+        text-align: center;
+        margin: 30px 0 5px 0;
+    }
+    .modal .actions a {
+        padding: 8x;
+        color: #333;
+        border: 1px solid #eee;
+        border-radius: 3px;
+        text-decoration: none;
+        margin: 10px;
+    }
+    .modal.sale .actions {
+        color:white;
+    }
+    .modal.sale .actions a {
+        color:white;
+    }
 </style>
